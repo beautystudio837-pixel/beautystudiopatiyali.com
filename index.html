@@ -119,10 +119,87 @@ section{
     background:#222;
 }
 
-/* PORTFOLIO */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+/* PORTFOLIO */<script>
+function openModal(src) {
+    document.getElementById("imgModal").style.display = "block";
+    document.getElementById("modalImg").src = src;
+}
+function closeModal() {
+    document.getElementById("imgModal").style.display = "none";
+}
+</script>
+
+<section id="portfolio" class="portfolio">
+    <h2>Our <span>Portfolio</span></h2>
+
+    <div class="portfolio-grid">
+        <img src="images/w1.jpg" onclick="openModal(this.src)">
+        <img src="images/w2.jpg" onclick="openModal(this.src)">
+        <img src="images/w3.jpg" onclick="openModal(this.src)">
+        <img src="images/w4.jpg" onclick="openModal(this.src)">
+        <img src="images/w5.jpg" onclick="openModal(this.src)">
+        <img src="images/w6.jpg" onclick="openModal(this.src)">
+    </div>
+</section>
+
+<!-- Fullscreen Image Modal -->
+<div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+.portfolio {
+    padding: 60px 20px;
+    text-align: center;
+}
+.portfolio h2 span {
+    color: #ff3366;
+}
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    max-width: 1100px;
+    margin: auto;
+}
+.portfolio-grid img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.portfolio-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+.modal-content {
+    display: block;
+    max-width: 90%;
+    max-height: 85%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+px,1fr));
     gap:20px;
 }
 .gallery img{
