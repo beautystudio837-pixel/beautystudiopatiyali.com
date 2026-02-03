@@ -1,181 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beauty Studio Patiyali - Wedding Photography</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-/* Global Styles */
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
-body { color: #333; line-height: 1.6; scroll-behavior: smooth; }
-a { text-decoration: none; color: inherit; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beauty Studio Patiyali | Premium Wedding Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#0f0f0f;color:#fff;line-height:1.6}
+    a{text-decoration:none;color:inherit}
 
-/* Header / Hero */
-header {
-    background: url('images/hero.jpg') no-repeat center center/cover;
-    height: 100vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-header::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 0;
-}
-header h1 { font-size: 3em; z-index: 1; animation: fadeInDown 1s ease; }
-header p { font-size: 1.5em; margin-top: 10px; z-index: 1; animation: fadeInUp 1s ease; }
-.btn { padding: 12px 25px; background: #ff3366; color: white; border-radius: 5px; margin-top: 20px; display: inline-block; z-index: 1; transition: transform 0.3s; }
-.btn:hover { transform: scale(1.1); }
+    /* NAVBAR */
+    nav{position:fixed;top:0;left:0;width:100%;padding:20px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.6);z-index:100}
+    nav h1{font-size:22px;font-weight:700;letter-spacing:1px}
+    nav ul{display:flex;gap:25px;list-style:none}
+    nav ul li a{font-size:14px;opacity:.9}
+    nav ul li a:hover{color:#ff2e63}
 
-/* Animations */
-@keyframes fadeInDown { from {opacity:0; transform: translateY(-30px);} to {opacity:1; transform: translateY(0);} }
-@keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
+    /* HERO */
+    .hero{height:100vh;background:url('images/hero.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;position:relative}
+    .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.55)}
+    .hero-content{position:relative;z-index:2}
+    .hero h2{font-size:52px;font-weight:700}
+    .hero p{font-size:18px;margin:15px 0 30px}
+    .btn{padding:14px 34px;background:#ff2e63;border-radius:40px;font-size:14px;font-weight:600}
 
-/* Sections */
-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-section h2 { text-align: center; margin-bottom: 40px; font-size: 2.2em; color: #ff3366; }
-section p { text-align: center; max-width: 800px; margin: auto; }
+    /* SECTIONS */
+    section{padding:100px 8%}
+    .title{text-align:center;margin-bottom:60px}
+    .title h3{font-size:36px}
+    .title span{color:#ff2e63}
 
-/* Portfolio Slider */
-.slider { position: relative; max-width: 1000px; margin: auto; overflow: hidden; border-radius: 10px; }
-.slides { display: flex; transition: transform 0.5s ease-in-out; }
-.slides img { width: 100%; border-radius: 10px; }
-.prev, .next {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(0,0,0,0.5); color: white; border: none;
-    padding: 10px; cursor: pointer; border-radius: 50%;
-}
-.prev { left: 20px; }
-.next { right: 20px; }
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about img{width:100%;border-radius:20px}
 
-/* Services */
-.services-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-.service { background: #ff3366; color: white; padding: 20px; border-radius: 10px; flex: 1 1 200px; max-width: 250px; transition: transform 0.3s; }
-.service:hover { transform: scale(1.05); }
+    /* SERVICES */
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+    .card{background:#1a1a1a;padding:30px;border-radius:20px;transition:.3s}
+    .card:hover{transform:translateY(-10px);background:#222}
+    .card h4{margin-bottom:10px;color:#ff2e63}
 
-/* Testimonials */
-.testimonials { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: auto; }
-.testimonial { background: #f7f7f7; padding: 20px; border-radius: 10px; font-style: italic; }
+    /* PORTFOLIO */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .gallery img{width:100%;border-radius:16px;transition:.4s}
+    .gallery img:hover{transform:scale(1.05)}
 
-/* Contact Form */
-form { display: flex; flex-direction: column; max-width: 500px; margin: auto; gap: 15px; }
-input, textarea { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; }
-button { padding: 12px; border: none; background: #ff3366; color: white; border-radius: 5px; cursor: pointer; }
-button:hover { transform: scale(1.05); }
+    /* CONTACT */
+    .contact{text-align:center}
+    .contact p{margin:10px 0}
 
-/* Footer */
-footer { background: #333; color: white; text-align: center; padding: 20px; }
+    footer{padding:25px;text-align:center;background:#000;font-size:14px}
 
-/* Responsive */
-@media(max-width:768px){
-    header h1 { font-size: 2em; }
-    header p { font-size: 1.2em; }
-    .services-list { flex-direction: column; align-items: center; }
-}
-</style>
+    @media(max-width:900px){
+      .about{grid-template-columns:1fr}
+      .hero h2{font-size:38px}
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Beauty Studio Patiyali</h1>
-    <p>Capturing Your Precious Moments Forever</p>
-    <a href="#contact" class="btn">Book Your Session</a>
-</header>
+<nav>
+  <h1>Beauty Studio</h1>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<!-- About -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Luxury Wedding Photography</h2>
+    <p>We capture emotions, moments & stories forever</p>
+    <a class="btn" href="#contact">Book Now</a>
+  </div>
+</section>
+
 <section id="about">
-    <h2>About Us</h2>
-    <p>Hi, I am <strong>Nadeem Ahamad</strong>, the proud owner of Beauty Studio Patiyali. Hum apke shadi ke har pal ko cinematic touch ke saath capture karte hain aur yaadgar banate hain.</p>
+  <div class="title"><h3>About <span>Us</span></h3></div>
+  <div class="about">
+    <img src="images/about.jpg" alt="About">
+    <p>Hi, I am <b>Nadeem Ahamad</b>, owner of Beauty Studio Patiyali. We specialise in premium cinematic wedding photography and films inspired by modern luxury wedding brands.</p>
+  </div>
 </section>
 
-<!-- Portfolio Slider -->
-<section id="portfolio">
-    <h2>Our Portfolio</h2>
-    <div class="slider">
-        <div class="slides">
-            <img src="images/wedding1.jpg" alt="Wedding Photo 1">
-            <img src="images/wedding2.jpg" alt="Wedding Photo 2">
-            <img src="images/wedding3.jpg" alt="Wedding Photo 3">
-            <img src="images/wedding4.jpg" alt="Wedding Photo 4">
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </div>
-</section>
-
-<!-- Services -->
 <section id="services">
-    <h2>Our Services</h2>
-    <div class="services-list">
-        <div class="service">Wedding Photography</div>
-        <div class="service">Pre-Wedding Shoots</div>
-        <div class="service">Cinematic Wedding Videos</div>
-        <div class="service">Destination Weddings</div>
-    </div>
+  <div class="title"><h3>Our <span>Services</span></h3></div>
+  <div class="services">
+    <div class="card"><h4>Wedding Photography</h4><p>Luxury candid & traditional coverage</p></div>
+    <div class="card"><h4>Cinematic Films</h4><p>Story‑driven wedding movies</p></div>
+    <div class="card"><h4>Pre‑Wedding</h4><p>Stylish couple shoots</p></div>
+    <div class="card"><h4>Destination Weddings</h4><p>Pan‑India & international</p></div>
+  </div>
 </section>
 
-<!-- Testimonials -->
-<section id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-        <div class="testimonial">"Nadeem Ahamad captured our wedding perfectly! Every moment was magical." – Priya & Rohit</div>
-        <div class="testimonial">"Highly professional and creative. We loved our wedding video!" – Anjali & Sameer</div>
-    </div>
+<section id="portfolio">
+  <div class="title"><h3>Our <span>Work</span></h3></div>
+  <div class="gallery">
+    <img src="images/w1.jpg">
+    <img src="images/w2.jpg">
+    <img src="images/w3.jpg">
+    <img src="images/w4.jpg">
+    <img src="images/w5.jpg">
+    <img src="images/w6.jpg">
+  </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Call us: <strong>+91 97586 70920</strong></p>
-    <p>Photographer & Owner: <strong>Nadeem Ahamad</strong></p>
-    <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="Phone" required>
-        <textarea placeholder="Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <p style="text-align:center; margin-top:10px;">
-        Follow us:
-        <a href="#" target="_blank">Instagram</a> |
-        <a href="#" target="_blank">Facebook</a> |
-        <a href="#" target="_blank">WhatsApp</a>
-    </p>
+<section id="contact" class="contact">
+  <div class="title"><h3>Contact <span>Us</span></h3></div>
+  <p><b>Beauty Studio Patiyali</b></p>
+  <p>Owner: Nadeem Ahamad</p>
+  <p>📞 +91 97586 70920</p>
 </section>
 
-<!-- Footer -->
 <footer>
-    <p>&copy; 2026 Beauty Studio Patiyali. All Rights Reserved.</p>
+  © 2026 Beauty Studio Patiyali. All Rights Reserved.
 </footer>
-
-<!-- Slider JS -->
-<script>
-let slideIndex = 0;
-const slides = document.querySelector('.slides');
-const totalSlides = slides.children.length;
-
-document.querySelector('.next').addEventListener('click', () => { moveSlide(1); });
-document.querySelector('.prev').addEventListener('click', () => { moveSlide(-1); });
-
-function moveSlide(direction){
-    slideIndex += direction;
-    if(slideIndex < 0) slideIndex = totalSlides - 1;
-    if(slideIndex >= totalSlides) slideIndex = 0;
-    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
-}
-
-// Auto-slide every 5 sec
-setInterval(()=>{ moveSlide(1); },5000);
-</script>
 
 </body>
 </html>
