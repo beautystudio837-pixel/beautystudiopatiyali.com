@@ -64,22 +64,45 @@ section{padding:90px 6%}
 .title span{color:var(--accent)}
 
 /* PORTFOLIO */
-.portfolio-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-max-width:1200px;margin:auto;
+.filter-btns{
+  text-align:center;
+  margin-bottom:30px
 }
-.portfolio-container img{
-width:100%;border-radius:14px;cursor:pointer;
-transition:.3s;
+.filter-btns button{
+  background:#161616;
+  color:#fff;
+  border:none;
+  padding:10px 22px;
+  margin:6px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:13px
 }
-.portfolio-container img:hover{
-transform:scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,.4);
+.filter-btns button.active,
+.filter-btns button:hover{
+  background:var(--accent)
 }
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  max-width:1200px;
+  margin:auto
+}
+.portfolio-grid img{
+  width:100%;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.3s
+}
+.portfolio-grid img:hover{
+  transform:scale(1.05)
+}
+
 /* Modal */
 .modal{
-display:none; /* hidden initially */
+display:none;
 position:fixed;inset:0;
 background:rgba(0,0,0,.9);
 z-index:999;
@@ -159,16 +182,14 @@ section{padding:70px 20px}
 
 <!-- PORTFOLIO -->
 <section id="portfolio">
-<div class="title"><h2>Our <span>Portfolio</span></h2></div>
-<div class="portfolio-container" id="portfolioContainer">
-<!-- Images uploaded by you go here -->
-<img src="portfolio/images/01.jpg" alt="Wedding photo 1" onclick="openModal(this.src)">
-<img src="portfolio/images/02.jpg" alt="Wedding photo 2" onclick="openModal(this.src)">
-<img src="portfolio/images/03.jpg" alt="Wedding photo 3" onclick="openModal(this.src)">
-<img src="portfolio/images/04.jpg" alt="Wedding photo 4" onclick="openModal(this.src)">
-<img src="portfolio/images/05.jpg" alt="Wedding photo 5" onclick="openModal(this.src)">
-<img src="portfolio/images/06.jpg" alt="Wedding photo 6" onclick="openModal(this.src)">
+<div class="title"><h2>Wedding <span>Portfolio</span></h2></div>
+<div class="filter-btns">
+<button onclick="showGallery('candid')" class="active">Candid</button>
+<button onclick="showGallery('traditional')">Traditional</button>
+<button onclick="showGallery('prewedding')">Pre Wedding</button>
 </div>
+
+<div id="gallery" class="portfolio-grid"></div>
 </section>
 
 <div id="imgModal" class="modal" onclick="closeModal()">
@@ -212,11 +233,10 @@ section{padding:70px 20px}
 <ul>
 <li>3 Days Shoot</li>
 <li>Traditional + Candid + Cinematic</li>
-<li>40 Sheet Album Ntr</li>
-<li>280 Photos Edite</li>
+<li>40 Sheet Album</li>
+<li>280 Photos</li>
 <li>5 Min Highlight</li>
 <li>1–2 Min Teaser</li>
-  <li>1- Instagram Reel</li>
 <li>3 Hour Cinematic Film</li>
 </ul>
 <a href="https://wa.me/919758670920">Book on WhatsApp</a>
@@ -227,11 +247,10 @@ section{padding:70px 20px}
 <ul>
 <li>3 Days Shoot</li>
 <li>2 Candid + 2 Cinematic</li>
-<li>50 Sheet Album Ntr</li>
+<li>50 Sheet Album</li>
 <li>300 Photos</li>
-<li>6 Min Highlight</li>
-<li>1–3 Min Teaser</li>
-  <li>5 Instagram Reels</li>
+<li>5 Min Highlight</li>
+<li>1–2 Min Teaser</li>
 <li>3 Hour Cinematic Film</li>
 </ul>
 <a href="https://wa.me/919758670920">Book on WhatsApp</a>
@@ -252,15 +271,49 @@ section{padding:70px 20px}
 <div class="float-btn whatsapp"><a href="https://wa.me/919758670920">💬 WhatsApp</a></div>
 
 <script>
+// Portfolio images - dynamically update by folders
+const portfolioData = {
+  candid: [
+    "portfolio/candid/ali-neha/1.jpg",
+    "portfolio/candid/ali-neha/2.jpg",
+    "portfolio/candid/rahul-pooja/1.jpg"
+  ],
+  traditional: [
+    "portfolio/traditional/imran-sana/1.jpg",
+    "portfolio/traditional/imran-sana/2.jpg"
+  ],
+  prewedding: [
+    "portfolio/prewedding/armaan-ayesha/1.jpg",
+    "portfolio/prewedding/armaan-ayesha/2.jpg"
+  ]
+};
+
+function showGallery(type){
+  const gallery = document.getElementById("gallery");
+  gallery.innerHTML = "";
+  const buttons = document.querySelectorAll('.filter-btns button');
+  buttons.forEach(btn=>btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  portfolioData[type].forEach(img=>{
+    const image = document.createElement("img");
+    image.src = img;
+    image.alt = img.split('/').pop().replace(/-/g,' ').split('.')[0];
+    image.onclick = () => openModal(img);
+    gallery.appendChild(image);
+  });
+}
+showGallery('candid');
+
 function openModal(src){
   document.getElementById("imgModal").style.display="flex";
-  document.getElementById("modalImg").src=src;
+  document.getElementById("modalImg").src = src;
 }
 function closeModal(){
   document.getElementById("imgModal").style.display="none";
 }
 function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("show")
+  document.getElementById("navLinks").classList.toggle("show");
 }
 </script>
 
