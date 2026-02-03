@@ -12,7 +12,34 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Poppins',sans-serif;/* Portfolio Section */
+#portfolio{
+    padding:40px 20px;
+    text-align:center;
+}
+
+#portfolio h2{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.portfolio-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:15px;
+}
+
+.portfolio-container img{
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    transition:transform 0.3s ease;
+}
+
+.portfolio-container img:hover{
+    transform:scale(1.05);
+}
+
 }
 body{
     background:#0f0f0f;
@@ -129,18 +156,19 @@ function closeModal() {
 }
 </script>
 
-<section id="portfolio" class="portfolio">
-    <h2>Our <span>Portfolio</span></h2>
+<section id="portfolio">
+  <h2>Our Portfolio</h2>
 
-    <div class="portfolio-grid">
-        <img src="images/01.jpg" onclick="openModal(this.src)">
-        <img src="images/02.jpg" onclick="openModal(this.src)">
-        <img src="images/03.jpg" onclick="openModal(this.src)">
-        <img src="images/04.jpg" onclick="openModal(this.src)">
-        <img src="images/05.jpg" onclick="openModal(this.src)">
-        <img src="images/06.jpg" onclick="openModal(this.src)">
-    </div>
+  <div class="portfolio-container">
+    <img src="portfolio/images/01.jpg">
+    <img src="portfolio/images/02.jpg">
+    <img src="portfolio/images/03.jpg">
+    <img src="portfolio/images/04.jpg">
+    <img src="portfolio/images/05.jpg">
+    <img src="portfolio/images/06.jpg">
+  </div>
 </section>
+
 
 <!-- Fullscreen Image Modal -->
 <div id="imgModal" class="modal">
