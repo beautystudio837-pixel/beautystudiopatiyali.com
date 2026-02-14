@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beauty Studio Patiyali | Wedding Photography</title>
-<meta name="description" content="Luxury wedding photography services in Patiyali. Cinematic films, candid moments, and premium albums for your special day.">
-<meta name="keywords" content="wedding photography, beauty studio patiyali, cinematic wedding films, candid photography">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -16,30 +14,27 @@
 --card:#161616;
 --text:#cfcfcf;
 }
-
-/* Global */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:var(--dark);color:#fff;line-height:1.6}
+body{background:var(--dark);color:#fff}
 
-/* NAVIGATION */
+/* NAV */
 nav{
 position:fixed;top:0;width:100%;z-index:100;
 background:rgba(0,0,0,.9);
 padding:14px 6%;
-display:flex;justify-content:space-between;align-items:center;
+display:flex;justify-content:space-between;align-items:center
 }
-nav h1{font-size:18px;font-weight:600}
-.nav-links{display:flex;align-items:center;}
+nav h1{font-size:18px}
 .nav-links a{color:#fff;margin-left:18px;text-decoration:none;font-size:13px}
 .nav-links a:hover{color:var(--accent)}
-/* Hamburger Menu */
-.hamburger{display:none;flex-direction:column;cursor:pointer}
+.hamburger{display:none;cursor:pointer}
 .hamburger div{width:25px;height:3px;background:#fff;margin:4px 0}
+
 @media(max-width:768px){
-.hamburger{display:flex}
-.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:rgba(0,0,0,.9);padding:10px}
-.nav-links.show{display:flex}
-.nav-links a{margin:10px 0}
+.hamburger{display:block}
+.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#000;padding:10px}
+.nav-links.show{display:block}
+.nav-links a{display:block;margin:10px 0}
 }
 
 /* HERO */
@@ -47,115 +42,75 @@ nav h1{font-size:18px;font-weight:600}
 min-height:100vh;
 background:url("images/hero.jpg") center/cover no-repeat;
 display:flex;align-items:center;justify-content:center;
-text-align:center;position:relative;padding:0 20px
+text-align:center;position:relative;padding:20px
 }
-.hero::after{
-content:"";position:absolute;inset:0;background:rgba(0,0,0,.65)
-}
-.hero-content{position:relative;z-index:2;max-width:600px}
-.hero h2{font-size:clamp(28px,6vw,48px);font-weight:700}
-.hero p{margin:16px 0 28px;font-size:15px;color:var(--text)}
-.btn{display:inline-block;background:var(--accent);padding:14px 34px;border-radius:50px;color:#fff;text-decoration:none;font-size:14px}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.65)}
+.hero-content{position:relative;z-index:2}
+.hero h2{font-size:42px}
+.hero p{color:var(--text);margin:15px 0}
+.btn{background:var(--accent);padding:14px 34px;border-radius:50px;color:#fff;text-decoration:none}
 
-/* SECTION TITLES */
+/* SECTION */
 section{padding:90px 6%}
-.title{text-align:center;margin-bottom:50px}
-.title h2{font-size:clamp(22px,5vw,34px)}
+.title{text-align:center;margin-bottom:40px}
 .title span{color:var(--accent)}
 
 /* PORTFOLIO */
-.filter-btns{
-  text-align:center;
-  margin-bottom:30px
-}
+.filter-btns{text-align:center;margin-bottom:30px}
 .filter-btns button{
-  background:#161616;
-  color:#fff;
-  border:none;
-  padding:10px 22px;
-  margin:6px;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:13px
+background:#161616;color:#fff;border:none;
+padding:10px 22px;margin:6px;border-radius:30px;
+cursor:pointer
 }
 .filter-btns button.active,
-.filter-btns button:hover{
-  background:var(--accent)
-}
+.filter-btns button:hover{background:var(--accent)}
 
 .portfolio-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-  max-width:1200px;
-  margin:auto
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;max-width:1200px;margin:auto
 }
 .portfolio-grid img{
-  width:100%;
-  border-radius:14px;
-  cursor:pointer;
-  transition:.3s
+width:100%;border-radius:14px;
+cursor:pointer;transition:.3s
 }
-.portfolio-grid img:hover{
-  transform:scale(1.05)
-}
+.portfolio-grid img:hover{transform:scale(1.05)}
 
-/* Modal */
+/* MODAL */
 .modal{
-display:none;
-position:fixed;inset:0;
+display:none;position:fixed;inset:0;
 background:rgba(0,0,0,.9);
-z-index:999;
-align-items:center;
-justify-content:center;
+z-index:999;align-items:center;justify-content:center
 }
-.modal-content{max-width:90%;max-height:85%;display:block;border-radius:10px}
+.modal img{max-width:90%;max-height:85%;border-radius:10px}
 .close{
-position:absolute;top:20px;right:30px;font-size:40px;cursor:pointer;color:#fff}
+position:absolute;top:20px;right:30px;
+font-size:40px;cursor:pointer
+}
 
 /* PACKAGES */
 .packages{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-max-width:1200px;
-margin:auto
+gap:25px;max-width:1200px;margin:auto
 }
 .package{
 background:var(--card);
-border-radius:22px;
-padding:30px;
-display:flex;
-flex-direction:column;
-height:100%;
-border:1px solid rgba(255,255,255,.05);
-transition:.35s
+border-radius:22px;padding:30px
 }
-.package:hover{transform:translateY(-6px);border-color:var(--accent)}
-.package h3{font-size:20px;margin-bottom:8px;color:var(--accent)}
-.price{font-size:34px;font-weight:700;margin-bottom:18px}
-.package ul{list-style:none;flex:1;font-size:14px;color:var(--text)}
-.package ul li{margin-bottom:10px;padding-left:18px;position:relative}
-.package ul li::before{content:"✓";position:absolute;left:0;color:var(--accent)}
-.package a{margin-top:25px;text-align:center;padding:14px;border-radius:40px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px}
-
-/* CONTACT */
-.contact{text-align:center;font-size:14px;color:var(--text)}
-.contact b{color:#fff}
+.package h3{color:var(--accent)}
+.price{font-size:32px;margin:10px 0}
+.package ul{list-style:none;color:var(--text)}
+.package ul li{margin:8px 0}
+.package a{
+display:block;margin-top:20px;
+background:var(--accent);
+padding:12px;border-radius:40px;
+color:#fff;text-align:center;text-decoration:none
+}
 
 /* FOOTER */
-footer{background:#000;padding:18px;text-align:center;font-size:13px;color:#aaa}
-
-/* FLOAT BUTTONS */
-.float-btn{position:fixed;right:20px;z-index:999}
-.call{bottom:90px;background:#28a745}
-.whatsapp{bottom:30px;background:#25d366}
-.float-btn a{display:block;padding:14px 18px;color:#fff;border-radius:50px;text-decoration:none;margin-top:10px}
-
-/* MOBILE */
-@media(max-width:768px){
-section{padding:70px 20px}
-}
+footer{text-align:center;padding:20px;background:#000;color:#aaa}
 </style>
 </head>
 
@@ -163,7 +118,9 @@ section{padding:70px 20px}
 
 <nav>
 <h1>Beauty Studio</h1>
-<div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+<div class="hamburger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a>
 <a href="#portfolio">Portfolio</a>
@@ -175,14 +132,14 @@ section{padding:70px 20px}
 <section id="home" class="hero">
 <div class="hero-content">
 <h2>Luxury Wedding Photography</h2>
-<p>Cinematic Films • Candid Moments • Premium Albums</p>
-<a href="#packages" class="btn">View Wedding Packages</a>
+<p>Cinematic • Candid • Premium Albums</p>
+<a href="#portfolio" class="btn">View Portfolio</a>
 </div>
 </section>
 
-<!-- PORTFOLIO -->
 <section id="portfolio">
 <div class="title"><h2>Wedding <span>Portfolio</span></h2></div>
+
 <div class="filter-btns">
 <button onclick="showGallery('candid')" class="active">Candid</button>
 <button onclick="showGallery('traditional')">Traditional</button>
@@ -193,13 +150,13 @@ section{padding:70px 20px}
 </section>
 
 <div id="imgModal" class="modal" onclick="closeModal()">
-<span class="close" onclick="closeModal()">&times;</span>
-<img id="modalImg" class="modal-content" alt="Enlarged wedding photo">
+<span class="close">&times;</span>
+<img id="modalImg">
 </div>
 
-<!-- PACKAGES -->
 <section id="packages">
 <div class="title"><h2>Wedding <span>Packages</span></h2></div>
+
 <div class="packages">
 <div class="package">
 <h3>Basic</h3>
@@ -208,112 +165,70 @@ section{padding:70px 20px}
 <li>2 Days Shoot</li>
 <li>Traditional Photo + Video</li>
 <li>30 Sheet Album</li>
-<li>210 Glossy Photos</li>
-<li>Pen Drive</li>
-<li>2.30 Hours Video</li>
 </ul>
-<a href="https://wa.me/919758670920">Book on WhatsApp</a>
+<a href="https://wa.me/919758670920">Book WhatsApp</a>
 </div>
-<div class="package">
-<h3>Premium</h3>
-<div class="price">₹35,000</div>
-<ul>
-<li>2 Days Shoot</li>
-<li>Traditional Photo + Video</li>
-<li>35 Sheet Album</li>
-<li>240 NTR Photos</li>
-<li>Pen Drive</li>
-<li>2.30 Hours Video</li>
-</ul>
-<a href="https://wa.me/919758670920">Book on WhatsApp</a>
-</div>
-<div class="package">
-<h3>Silver</h3>
-<div class="price">₹50,000</div>
-<ul>
-<li>3 Days Shoot</li>
-<li>Traditional + Candid + Cinematic</li>
-<li>40 Sheet Album</li>
-<li>280 Photos</li>
-<li>5 Min Highlight</li>
-<li>1–2 Min Teaser</li>
-<li>3 Hour Cinematic Film</li>
-</ul>
-<a href="https://wa.me/919758670920">Book on WhatsApp</a>
-</div>
+
 <div class="package">
 <h3>Golden</h3>
 <div class="price">₹80,000</div>
 <ul>
 <li>3 Days Shoot</li>
-<li>2 Candid + 2 Cinematic</li>
+<li>Candid + Cinematic</li>
 <li>50 Sheet Album</li>
-<li>300 Photos</li>
-<li>5 Min Highlight</li>
-<li>1–2 Min Teaser</li>
-<li>3 Hour Cinematic Film</li>
 </ul>
-<a href="https://wa.me/919758670920">Book on WhatsApp</a>
+<a href="https://wa.me/919758670920">Book WhatsApp</a>
 </div>
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" style="text-align:center;color:#ccc">
 <p><b>Beauty Studio Patiyali</b></p>
 <p>Owner: Nadeem Ahamad</p>
-<p>📞 +91 97586 70920</p>
+<p>📞 9758670920</p>
 </section>
 
 <footer>© 2026 Beauty Studio Patiyali</footer>
 
-<div class="float-btn call"><a href="tel:+919758670920">📞 Call</a></div>
-<div class="float-btn whatsapp"><a href="https://wa.me/919758670920">💬 WhatsApp</a></div>
-
 <script>
-// Portfolio images - dynamically update by folders
 const portfolioData = {
-  candid: [
-    "portfolio/candid/ali-neha/1.jpg",
-    "portfolio/candid/ali-neha/2.jpg",
-    "portfolio/candid/rahul-pooja/1.jpg"
-  ],
-  traditional: [
-    "portfolio/traditional/imran-sana/1.jpg",
-    "portfolio/traditional/imran-sana/2.jpg"
-  ],
-  prewedding: [
-    "portfolio/prewedding/armaan-ayesha/1.jpg",
-    "portfolio/prewedding/armaan-ayesha/2.jpg"
-  ]
+candid:[
+"portfolio/candid/prince-pinkey/1.jpg",
+"portfolio/candid/prince-pinkey/2.jpg"
+],
+traditional:[
+"portfolio/traditional/prince-pinkey/1.jpg"
+],
+prewedding:[
+"portfolio/prewedding/prince-pinkey/1.jpg"
+]
 };
 
 function showGallery(type){
-  const gallery = document.getElementById("gallery");
-  gallery.innerHTML = "";
-  const buttons = document.querySelectorAll('.filter-btns button');
-  buttons.forEach(btn=>btn.classList.remove('active'));
-  event.target.classList.add('active');
+const gallery=document.getElementById("gallery");
+gallery.innerHTML="";
+document.querySelectorAll(".filter-btns button")
+.forEach(b=>b.classList.remove("active"));
+event.target.classList.add("active");
 
-  portfolioData[type].forEach(img=>{
-    const image = document.createElement("img");
-    image.src = img;
-    image.alt = img.split('/').pop().replace(/-/g,' ').split('.')[0];
-    image.onclick = () => openModal(img);
-    gallery.appendChild(image);
-  });
+portfolioData[type].forEach(img=>{
+const i=document.createElement("img");
+i.src=img;
+i.onclick=()=>openModal(img);
+gallery.appendChild(i);
+});
 }
-showGallery('candid');
+showGallery("candid");
 
 function openModal(src){
-  document.getElementById("imgModal").style.display="flex";
-  document.getElementById("modalImg").src = src;
+document.getElementById("imgModal").style.display="flex";
+document.getElementById("modalImg").src=src;
 }
 function closeModal(){
-  document.getElementById("imgModal").style.display="none";
+document.getElementById("imgModal").style.display="none";
 }
 function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("show");
+document.getElementById("navLinks").classList.toggle("show");
 }
 </script>
 
